@@ -7,4 +7,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'xello-app';
+
+  isShowA = false;
+  isShowB = true;
+
+  buttonA(){
+    console.log("Button A");
+    this.isShowA = !this.isShowA;
+    this.isShowB = !this.isShowB;
+  }
+  
+  buttonB(){
+    console.log("Button B");
+    this.isShowA = !this.isShowA;
+    this.isShowB = !this.isShowB;
+
+  }
+
+  
 }
