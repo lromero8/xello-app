@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,15 @@ export class AppComponent {
   labelB = "B";
   controlA = false;
   controlB = true;
+  key: string
+
+
+  @HostListener('document:keydown.escape', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) { 
+    // console.log(event);
+    this.controlA = false;
+    this.controlB = false;
+  }
 
 
   onClickEventReceivedA(event: string) {
@@ -29,10 +38,15 @@ export class AppComponent {
     if (this.controlA) {
       this.controlA = !this.controlA;
     }
+    console.log(this.controlB)
     this.controlB = !this.controlB;
     console.log("This is the value of control A", this.controlA);
     console.log("This is the value of control B", this.controlB);
 
+  }
+
+  outSideClick(event: boolean){
+    console.log(event)
   }
 
 

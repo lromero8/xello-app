@@ -6,45 +6,28 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
-
-<app-button 
-[controlButton]="controlA"
-(btnClickEmt)="onClickEventReceivedA($event)"
-[textButton]="labelA"
-id="tooltip"></app-button>
-  
-<br><br><br>
-<br><br><br>
-<br><br><br>
-
-<app-button 
-[controlButton]="controlB"
-(btnClickEmt)="onClickEventReceivedB($event)"
-[textButton]="labelB"></app-button>
-
-<!-- <button type="button" class="btn btn-primary" (click)="buttonA()">Button A</button>
-
-
-<div *ngIf = "isShowA" class="content">
-  <diV class="heading">Tooltip A</diV>
-  <diV class="body">
-      Popover body text
-      <ul>
-          <li> Point 1</li>
-          <li> Point 2</li>
-          <li> Point 3</li>
-      </ul>
-  </diV>
- </div>
-
-
-<button type="button" class="btn btn-success" (click)="buttonB()">Button B</button>
-<div *ngIf = "isShowB">Tooltip B</div> -->
-
-
+<br><br><br><br><br>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row d-flex justify-content-center" style="background-color:brown;">
+      <div col-sm-6 class="mr-5">
+        <app-button
+        [controlButton]="controlA"
+        (btnClickEmt)="onClickEventReceivedA($event)"
+        (outsideClickEmt)="outSideClick($event)"
+        [textButton]="labelA"></app-button>
+      </div>
+      
+      <div col-sm-6>
+        <app-button
+        [controlButton]="controlB"
+        (btnClickEmt)="onClickEventReceivedB($event)"
+        [textButton]="labelB"></app-button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- {{child1.childMessage}} -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

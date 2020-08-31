@@ -1,26 +1,15 @@
-<button type="button" class="btn btn-primary" (click)="onBtnClick()">Button {{textButton}}</button>
-
-<div *ngIf = "controlButton" class="content" id="clickbox">
-    <div class="heading">Tooltip {{textButton}}</div>
-    <div class="body">
+<div *ngIf = "controlButton" class="content myTooltip" (keydown.esc)="onKeydown($event)">
+    <div class="myTooltip">Tooltip {{textButton}}</div>
+    <div class="myTooltip">
         Popover body text
-        <ul>
-            <li> Point 1</li>
-            <li> Point 2</li>
-            <li> Point 3</li>
+        <ul class="myTooltip">
+            <li class="myTooltip"> Point 1</li>
+            <li class="myTooltip"> Point 2</li>
+            <li class="myTooltip"> Point 3</li>
         </ul>
     </div>
 </div>
 
+<button type="button" class="btn btn-primary" (click)="onBtnClick()">Button {{textButton}}</button>
 
-<script>
-    window.addEventListener('click', function(e){   
-  if (document.getElementById('clickbox').contains(e.target)){
-    // Clicked in box
-    console.log("Clicked inside");
-  } else{
-    // Clicked outside the box
-    console.log("Clicked outside");
-  }
-});
-</script>
+
