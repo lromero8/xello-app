@@ -9,19 +9,13 @@ import { AppComponent } from '../app.component';
 })
 export class ButtonComponent implements OnInit {
   @Input() controlButton: any;
-  @Input() textButton: String;
   @Output() btnClickEmt: EventEmitter<string> = new EventEmitter<string>();
-  @Output() outsideClickEmt: EventEmitter<boolean> = new EventEmitter<boolean>();
-  childMessage = 'hola mundo'
 
 
 
-  constructor(private controlButtonB: AppComponent) {
-   }
+  constructor(private appControlButtons: AppComponent) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     document.onclick = (args: any) : void => {
@@ -30,30 +24,20 @@ export class ButtonComponent implements OnInit {
             args.target.className !== 'myTooltip' && 
             args.target.className !== 'content myTooltip' &&
             args.target.className !== 'btn btn-primary') {
-            console.log("click outside");
-            this.childMessage = 'adios mundo'
-            this.controlButtonB.controlB = false;
-            this.controlButtonB.controlA = false;
-            this.outsideClickEmt.emit(false);
+            // console.log("click outside");
+            this.appControlButtons.btnConfig.buttonB.control = false;
+            this.appControlButtons.btnConfig.buttonA.control = false;
           }
     }
 
   }
 
-  onKeydown(event: string){
-    console.log(event);
-  }
 
 
   onBtnClick() {
-    this.btnClickEmt.emit('You have clicked on a text button.');
-    // console.log("This is the value of controlButton ", this.controlButton);
+    this.btnClickEmt.emit('You have clicked on a button.');
   }
 
-  incrementClickOutsideCount() {
-    // this.controlButton = false;
-    console.log("click outside directive")
-  }
   
 
 }

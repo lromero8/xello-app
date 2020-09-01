@@ -1,5 +1,5 @@
-<div *ngIf = "controlButton" class="content myTooltip" (keydown.esc)="onKeydown($event)">
-    <div class="myTooltip">Tooltip {{textButton}}</div>
+<div *ngIf = "controlButton.control" class="content myTooltip">
+    <div class="myTooltip">Tooltip {{controlButton.label}}</div>
     <div class="myTooltip">
         Popover body text
         <ul class="myTooltip">
@@ -10,6 +10,6 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-primary" (click)="onBtnClick()">Button {{textButton}}</button>
+<button type="button" [ngClass]="controlButton.class" (click)="onBtnClick()">Button {{controlButton.label}}</button>
 
 

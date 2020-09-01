@@ -6,28 +6,27 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
 <br><br><br><br><br>
+
 <div class="jumbotron">
   <div class="container">
     <div class="row d-flex justify-content-center" style="background-color:brown;">
       <div col-sm-6 class="mr-5">
         <app-button
-        [controlButton]="controlA"
-        (btnClickEmt)="onClickEventReceivedA($event)"
-        (outsideClickEmt)="outSideClick($event)"
-        [textButton]="labelA"></app-button>
+        [controlButton]="btnConfig.buttonA"
+        (btnClickEmt)="onClickEventReceivedA($event)"></app-button>
       </div>
       
       <div col-sm-6>
         <app-button
-        [controlButton]="controlB"
-        (btnClickEmt)="onClickEventReceivedB($event)"
-        [textButton]="labelB"></app-button>
+        [controlButton]="btnConfig.buttonB"
+        (btnClickEmt)="onClickEventReceivedB($event)"></app-button>
       </div>
     </div>
   </div>
 </div>
-<!-- {{child1.childMessage}} -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
