@@ -31,15 +31,14 @@ export class AppComponent {
     this.btnConfig.buttonB.control = false;
   }
 
-
   onClickEventReceivedA(event: string) {
 
     if (this.btnConfig.buttonB.control) {
       this.btnConfig.buttonB.control = !this.btnConfig.buttonB.control;
     }
     this.btnConfig.buttonA.control = !this.btnConfig.buttonA.control;
-    // console.log("This is the value of controlA", this.control);
-    // console.log("This is the value of controlB", this.control);
+    // console.log("This is the value of controlA", this.btnConfig.buttonA.control);
+    // console.log("This is the value of controlB", this.btnConfig.buttonB.control);
   }
 
   onClickEventReceivedB(event: string) {
@@ -47,8 +46,8 @@ export class AppComponent {
       this.btnConfig.buttonA.control = !this.btnConfig.buttonA.control;
     }
     this.btnConfig.buttonB.control = !this.btnConfig.buttonB.control;
-    // console.log("This is the value of control A", this.controlA);
-    // console.log("This is the value of control B", this.controlB);
+    // console.log("This is the value of control A", this.btnConfig.buttonA.control);
+    // console.log("This is the value of control B", this.btnConfig.buttonB.control);
 
   }
 
