@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-root',
@@ -7,22 +9,35 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'xello-app';
+  navbarCollapsed = true; 
+
 
   btnConfig = {
     buttonA: {
-      control: false,
+      control: true,
       label: 'A',
-      class: 'btn btn-primary'
+      class: 'btn btn-primary',
+      content: 'What do you call a singing laptop?'
       
     },
     buttonB:{
-      control: true,
+      control: false,
       label: 'B',
-      class: 'btn btn-success'
+      class: 'btn btn-success',
+      content: 'A Dell'
     }
     
   };
 
+  constructor(private modalService: NgbModal) {}
+
+  open(content) {
+    if (content == "content") {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+    } else {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title2'})
+    }
+  }
 
   @HostListener('document:keydown.escape', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) { 

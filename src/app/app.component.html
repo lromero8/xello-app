@@ -6,13 +6,82 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<style>
-  .square {
-    height: 200px;
-    width: 200px;
-    background-color: #555;
-  }
-</style>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #435d7d">
+  <button class="navbar-toggler" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01" [ngbCollapse]="navbarCollapsed">
+    <img src="./assets/xello-logo-white.png" width="80px" height="35px" class="mt-2 mr-4">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" (click)="open(content)">Help <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="open(content2)">About Me</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Help!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li>Click on each button to show or close tooltips</li>
+      <li>Click outside tooltip to close them</li>
+      <li>Resize screen to show responsive navigation bar</li>
+      <li>Resize screen to show scroll bar and test tooltip's change of position</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #content2 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">About Me</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h6 class="nameTitle">Luis Romero</h6>
+    <p class="helvetica">Full-Stack Developer</p>
+
+    <hr>
+
+    <p class="q">I'm / I'd / I'll...</p>
+    <p class="a">an ex-volleyball player / live in Mars / skydive</p>
+
+    <p class="q">I ride ...</p>
+    <p class="a">Roads and trails</p>
+
+    <p class="q">I only dance to...</p>
+    <p class="a">Salsa</p>
+
+    <p class="q">I eat...</p>
+    <p class="a">Burritos, Shawarmas, and Poutine</p>
+
+    <p class="q">I drink...</p>
+    <p class="a">beer with friends</p>
+
+    <p class="q">I prefer...</p>
+    <p class="a">tequila with amigos</p>
+    
+    <p class="q">I would bring...</p>
+    <p class="a">the party</p>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('close click')">Close</button>
+  </div>
+</ng-template>
 
 <br><br><br><br><br>
 

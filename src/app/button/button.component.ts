@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -12,25 +12,25 @@ export class ButtonComponent implements OnInit {
 
   bottomStyle: any
   
-  constructor(private appControlButtons: AppComponent) {}
+  constructor(private appControlButtons: AppComponent, private el: ElementRef) {}
 
-  // @HostListener('window:scroll', ['$event'])
-  // onScroll(event) {
-  //   let element = this.el.nativeElement.querySelector('#myID');
-  //   if (element != null) {
-  //     // console.log(window.pageYOffset)
-  //     let contentTopCoordinate = element.getBoundingClientRect().top
-  //     // console.log("offset top", contentTopCoordinate);
-  //     if (contentTopCoordinate <= 0) {
-  //       element.className = "bottomStyle myTooltip";
-  //     }
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    let element = this.el.nativeElement.querySelector('#myID');
+    if (element != null) {
+      // console.log(window.pageYOffset)
+      let contentTopCoordinate = element.getBoundingClientRect().top
+      // console.log("offset top", contentTopCoordinate);
+      if (contentTopCoordinate <= 0) {
+        element.className = "bottomStyle myTooltip";
+      }
       
-  //     if (window.pageYOffset === 0){
-  //       element.className = "content myTooltip";
-  //     }
-  //     console.log(element.className);
-  //   }
-  // }
+      if (window.pageYOffset === 0){
+        element.className = "content myTooltip";
+      }
+      console.log(element.className);
+    }
+  }
 
   ngOnInit(): void {}
 
