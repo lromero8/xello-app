@@ -1,16 +1,10 @@
 <div *ngIf = "controlButton.control" id="myID" class="content myTooltip">
-    <div class="myTooltip">Tooltip {{controlButton.label}}</div>
+    <div class="myTooltip mb-3" style="border-bottom: 1px solid #f2f2f2;">Tooltip</div>
     <div class="myTooltip">
         {{controlButton.content}}
-        <!-- Popover body text -->
-        <!-- <ul class="myTooltip">
-            <li class="myTooltip"> Point 1</li>
-            <li class="myTooltip"> Point 2</li>
-            <li class="myTooltip"> Point 3</li>
-        </ul> -->
     </div>
 </div>
 
-<button type="button" [ngClass]="controlButton.class" (click)="onBtnClick()">Button {{controlButton.label}}</button>
+<button type="button" [ngClass]="controlButton.class" (click)="onBtnClick()">{{controlButton.label}}</button>
 
 

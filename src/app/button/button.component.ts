@@ -14,6 +14,7 @@ export class ButtonComponent implements OnInit {
   
   constructor(private appControlButtons: AppComponent, private el: ElementRef) {}
 
+  // Hostlistener for scroll event
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
     let element = this.el.nativeElement.querySelector('#myID');
@@ -28,35 +29,33 @@ export class ButtonComponent implements OnInit {
       if (window.pageYOffset === 0){
         element.className = "content myTooltip";
       }
-      console.log(element.className);
+      // console.log(element.className);
     }
   }
 
-  ngOnInit(): void {}
-
+  // After View Init for outside tooltip click
   ngAfterViewInit(): void {
     document.onclick = (args: any) : void => {
       // console.log(args.target.className);
           if(
             args.target.className !== 'myTooltip' && 
             args.target.className !== 'content myTooltip' &&
-            // args.target.className !== 'bottomStyle myTooltip' &&
-            args.target.className !== 'btn btn-primary' &&
-            args.target.className !== 'btn btn-success') {
+            args.target.className !== 'bottomStyle myTooltip' &&
+            args.target.className !== 'btn btn-primary btn-lg' &&
+            args.target.className !== 'btn btn-success btn-lg') {
             // console.log("click outside");
             this.appControlButtons.btnConfig.buttonB.control = false;
             this.appControlButtons.btnConfig.buttonA.control = false;
           }
-    }
-
+    }    
   }
-
-
-
+  
+  // Button click emiter for app component
   onBtnClick() {
     this.btnClickEmt.emit('You have clicked on a button.');
   }
-
+  
+  ngOnInit(): void {}
   
 
 }

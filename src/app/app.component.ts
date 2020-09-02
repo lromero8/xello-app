@@ -15,15 +15,15 @@ export class AppComponent {
   btnConfig = {
     buttonA: {
       control: true,
-      label: 'A',
-      class: 'btn btn-primary',
+      label: 'Tell me',
+      class: 'btn btn-primary btn-lg',
       content: 'What do you call a singing laptop?'
       
     },
     buttonB:{
       control: false,
-      label: 'B',
-      class: 'btn btn-success',
+      label: 'A joke!',
+      class: 'btn btn-success btn-lg',
       content: 'A Dell'
     }
     
@@ -31,6 +31,7 @@ export class AppComponent {
 
   constructor(private modalService: NgbModal) {}
 
+  // Open modal function
   open(content) {
     if (content == "content") {
       this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
@@ -39,6 +40,8 @@ export class AppComponent {
     }
   }
 
+
+  // Hostlistener for escape key
   @HostListener('document:keydown.escape', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) { 
     // console.log(event);
@@ -46,6 +49,7 @@ export class AppComponent {
     this.btnConfig.buttonB.control = false;
   }
 
+  // Button A function
   onClickEventReceivedA(event: string) {
 
     if (this.btnConfig.buttonB.control) {
@@ -56,6 +60,7 @@ export class AppComponent {
     // console.log("This is the value of controlB", this.btnConfig.buttonB.control);
   }
 
+  // Button B function
   onClickEventReceivedB(event: string) {
     if (this.btnConfig.buttonA.control) {
       this.btnConfig.buttonA.control = !this.btnConfig.buttonA.control;
